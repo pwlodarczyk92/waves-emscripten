@@ -14,6 +14,7 @@ struct board {
     float time;
     float* deflection;
     float* velocity;
+    int* indices;
 };
 
 struct board* make_board(int xsize, int ysize, float acceleration, float damping, float timestep);
