@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "patch.h"
-#include "Board.h"
+#include "board.h"
 
 Patch* make_patch(int xsize, int ysize, float* values) {
     Patch* result = malloc(sizeof(Patch));

@@ -4,7 +4,7 @@
 
 #include <stdlib.h>
 #include "regular.h"
-#include "../Board.h"
+#include "../board.h"
 
 void increment_regular(Board *board);
 void increment_deflection(Board *board);
@@ -45,10 +45,12 @@ void increment_velocity(Board *board) {
     int xs = board->xsize;
     int ys = board->ysize;
 
+    /*
     defl[idx(xs, ys, 0,    0)]    = 0.0f;
     defl[idx(xs, ys, 0,    ys-1)] = 0.0f;
     defl[idx(xs, ys, xs-1, 0)]    = 0.0f;
     defl[idx(xs, ys, xs-1, ys-1)] = 0.0f;
+    */
 
     for (int y = 1; y < ys-1; ++y) {
         for (int x = 1; x < xs-1; ++x) {
@@ -59,6 +61,7 @@ void increment_velocity(Board *board) {
         }
     }
 
+    /*
     for (int y = 0; y < ys; ++y) {
         int il = idx(xs, ys, 0, y);
         float diffl = aroundl(defl, xs, ys, il) * 0.25f - defl[il] * 0.75f;
@@ -79,6 +82,8 @@ void increment_velocity(Board *board) {
         velo[iu] += diffu * acc_factor;
         velo[iu] *= damp_factor;
     }
+     */
+
 }
 
 void increment_deflection(Board *board) {
@@ -89,10 +94,12 @@ void increment_deflection(Board *board) {
     int ys = board->ysize;
     float timestep = board->timestep;
 
+    /*
     velo[idx(xs, ys, 0,    0)]    = 0.0f;
     velo[idx(xs, ys, 0,    ys-1)] = 0.0f;
     velo[idx(xs, ys, xs-1, 0)]    = 0.0f;
     velo[idx(xs, ys, xs-1, ys-1)] = 0.0f;
+    */
 
     for (int y = 0; y < ys; ++y) {
         for (int x = 0; x < xs; ++x) {

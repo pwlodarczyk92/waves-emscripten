@@ -3,7 +3,7 @@
 //
 #ifndef HELLO_WASM_PATCH_H
 #define HELLO_WASM_PATCH_H
-#import "Board.h"
+#import "board.h"
 
 typedef struct Patch {
     int xsize;

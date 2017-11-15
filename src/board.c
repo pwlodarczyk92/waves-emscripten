@@ -1,5 +1,6 @@
 #include <stdlib.h>
-#include "Board.h"
+#include "board.h"
+#include "regular/regular.h"
 
 Board* make_board(int xsize, int ysize, float timestep) {
     Board* result = malloc(sizeof(Board));
@@ -32,6 +33,5 @@ float inline around(float* vals, int xs, int ys, int i) {
 }
 
 void increment(Board* board) {
-    void (*incr_ptr)(Board*) = board->incr_ptr;
-    incr_ptr(board);
+    increment_regular(board);
 }
