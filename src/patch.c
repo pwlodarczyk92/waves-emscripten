@@ -5,10 +5,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "patch.h"
-#include "board.h"
+#include "Board.h"
 
-struct patch* make_patch(int xsize, int ysize, float* values) {
-    struct patch* result = malloc(sizeof(struct patch));
+Patch* make_patch(int xsize, int ysize, float* values) {
+    Patch* result = malloc(sizeof(Patch));
     result->xsize = xsize;
     result->ysize = ysize;
     result->values = values;
@@ -22,7 +22,7 @@ int min(int a, int b) {
     return a < b ? a : b;
 }
 
-void apply(struct patch* target, struct patch *patch, int xstart, int ystart, float factor) {
+void apply(Patch* target, Patch *patch, int xstart, int ystart, float factor) {
     if (xstart >= target->xsize || ystart >= target->ysize)
         return;
     int xend = xstart + patch->xsize;
@@ -48,16 +48,16 @@ void apply(struct patch* target, struct patch *patch, int xstart, int ystart, fl
     }
 }
 
-struct patch* velocity_patch(struct board *board) {
-    struct patch *vpatch = malloc(sizeof(struct patch));
+Patch* velocity_patch(Board *board) {
+    Patch *vpatch = malloc(sizeof(Patch));
     vpatch->xsize = board->xsize;
     vpatch->ysize = board->ysize;
     vpatch->values = board->velocity;
     return vpatch;
 }
 
-struct patch* deflection_patch(struct board *board) {
-    struct patch *dpatch = malloc(sizeof(struct patch));
+Patch* deflection_patch(Board *board) {
+    Patch *dpatch = malloc(sizeof(Patch));
     dpatch->xsize = board->xsize;
     dpatch->ysize = board->ysize;
     dpatch->values = board->deflection;
