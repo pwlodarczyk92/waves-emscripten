@@ -13,6 +13,5 @@ typedef struct RegData {
 } RegData;
 
 Board* make_regular_board(int xsize, int ysize, float acceleration, float damping, float timestep);
-void increment_regular(Board* board);
 
 #endif //HELLO_WASM_REGULAR_H
