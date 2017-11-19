@@ -9,7 +9,7 @@
 void increment_regular(Board *board);
 void destruct_regular(Board* board);
 
-Board* make_regular_board(int xsize, int ysize, float acceleration, float damping, float timestep) {
+Board* make_regular_board(int xsize, int ysize, float timestep, float acceleration, float damping) {
 
     Board* raw_board = make_board(xsize, ysize, timestep);
     RegData* data = malloc(sizeof(RegData));

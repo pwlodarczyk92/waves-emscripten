@@ -24,9 +24,9 @@ uint8_t clamp(float value, float start, float end) {
     return (uint8_t)((value - start) * 255.999 / (end - start));
 }
 
-void draw_board(Board *board, int *image) {
-    for (int i = 0; i < board->xsize * board->ysize; ++i) {
-        uint8_t clamped = clamp(board->deflection[i], -1, 1);
+void draw_table(Table *table, int *image) {
+    for (int i = 0; i < table->xsize * table->ysize; ++i) {
+        uint8_t clamped = clamp(table->values[i], -1, 1);
         image[i] = makecol(clamped, clamped, clamped, 255);
     }
 }

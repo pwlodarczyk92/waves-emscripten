@@ -1,3 +1,2 @@
-. ../../../emsdk/emsdk_env.sh
-./wasm.sh
+./compile.sh
 ./move.sh

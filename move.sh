@@ -1,4 +1,3 @@
-P=../../simulations/wave-webgl/public/
-cp out/hello.wasm $P/hello.wasm
-cp out/hello.js $P/hello.js
+cp out/wasm.wasm $PUBLIC_DIR/wasm.wasm
+cp out/wasm.js $PUBLIC_DIR/wasm.js
 

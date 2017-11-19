@@ -50,14 +50,4 @@ Table* velocity_table(Board* board) {
     return make_table(board->xsize, board->ysize, board->velocity);
 }
 
-int inline idx(int xsize, int ysize, int x, int y) {
-    return xsize * y + x;
-}
-
-float inline around(float* vals, int xs, int ys, int i) {
-    return vals[i - 1] +
-           vals[i + 1] +
-           vals[i - xs] +
-           vals[i + xs];
-}
 
