@@ -16,17 +16,26 @@ int* make_image(int xsize, int ysize) {
     return result;
 }
 
+void free_image(int *image) {
+    free(image);
+}
+
 uint8_t clamp(float value, float start, float end) {
-    if (value < start)
+    float scaled = 256 * (value - start) / (end - start);
+    if (scaled <= 0)
         return 0;
-    if (value >= end)
+    if (scaled >= 256)
         return 255;
-    return (uint8_t)((value - start) * 255.999 / (end - start));
+    return (uint8_t)scaled;
 }
 
 void draw_table(Table *table, int *image) {
-    for (int i = 0; i < table->xsize * table->ysize; ++i) {
-        uint8_t clamped = clamp(table->values[i], -1, 1);
+    int xsize = table->xsize;
+    int ysize = table->ysize;
+    int size = xsize * ysize;
+    float* values = table->values;
+    for (int i = 0; i < size; ++i) {
+        uint8_t clamped = clamp(values[i], -1, 1);
         image[i] = makecol(clamped, clamped, clamped, 255);
     }
 }
