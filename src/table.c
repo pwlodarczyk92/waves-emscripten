@@ -63,3 +63,9 @@ void normalize(Table* table) {
         }
     }
 }
+
+void affine(Table* table, int x, int y, float a, float b) {
+    int i = idx(table->xsize, table->ysize, x, y);
+    table->values[i] *= a;
+    table->values[i] += b;
+}

@@ -28,9 +28,7 @@ void free_palette(Palette* palette) {
 }
 
 void draw_with_palette(Table* table, int* image, Palette* palette) {
-    int xsize = table->xsize;
-    int ysize = table->ysize;
-    int size = xsize * ysize;
+    int size = table->xsize * table->ysize;
     int palsize = palette->size;
     int* colors = palette->colors;
     float* values = table->values;
