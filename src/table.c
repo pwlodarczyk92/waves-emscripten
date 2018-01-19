@@ -69,3 +69,14 @@ void affine(Table* table, int x, int y, float a, float b) {
     table->values[i] *= a;
     table->values[i] += b;
 }
+
+void clear(Table* table, float value) {
+    int xsize = table->xsize;
+    int ysize = table->ysize;
+    float* values = table->values;
+    for (int y = 0; y < ysize; ++y) {
+        for (int x = 0; x < xsize; ++x) {
+            values[idx(xsize, ysize, x, y)] = value;
+        }
+    }
+}
